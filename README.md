@@ -1,4 +1,36 @@
 
+## IAM (No delete access)
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:ListBucket",
+        "s3:GetObject"
+      ],
+      "Resource": [
+        "arn:aws:s3:::<REAL_OLD_BUCKET>",
+        "arn:aws:s3:::<REAL_OLD_BUCKET>/*"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:CreateBucket",
+        "s3:ListBucket",
+        "s3:GetObject",
+        "s3:PutObject",
+        "s3:AbortMultipartUpload"
+      ],
+      "Resource": [
+        "arn:aws:s3:::dvc-*"
+      ]
+    }
+  ]
+}
+```
 
 ## Runbook
 1. Setup
